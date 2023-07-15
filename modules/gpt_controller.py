@@ -37,12 +37,12 @@ def get_prices(coin, days, option):
     start_date = end_date - datetime.timedelta(int(days))
 
 
-    btc_data = get_historical_data(coin+"-USD", api_url, start_date, end_date)
-    btc_timestamps = [datetime.datetime.fromtimestamp(int(entry[0])) for entry in btc_data]
-    btc_opens = [entry[3] for entry in btc_data]
-    btc_highs = [entry[2] for entry in btc_data]
-    btc_lows = [entry[1] for entry in btc_data]
-    btc_closes = [entry[4] for entry in btc_data]
+    coin_data = get_historical_data(coin+"-USD", api_url, start_date, end_date)
+    coin_timestamps = [datetime.datetime.fromtimestamp(int(entry[0])) for entry in coin_data]
+    coin_opens = [entry[3] for entry in coin_data]
+    coin_highs = [entry[2] for entry in coin_data]
+    coin_lows = [entry[1] for entry in coin_data]
+    coin_closes = [entry[4] for entry in coin_data]
 
 
     eth_data = get_historical_data("ETH-USD", api_url, start_date, end_date)
@@ -51,15 +51,15 @@ def get_prices(coin, days, option):
     eth_highs = [entry[2] for entry in eth_data]
     eth_lows = [entry[1] for entry in eth_data]
     eth_closes = [entry[4] for entry in eth_data]
-    user_option(btc_data, eth_data, btc_opens, btc_highs, btc_lows, btc_closes, eth_opens, eth_highs, eth_lows, eth_closes,gpt_api, days, option)
-    show_plot(btc_timestamps, btc_closes, btc_lows, btc_highs, eth_timestamps, eth_closes, eth_lows, eth_highs, days)
+    user_option(coin,coin_data, eth_data, coin_opens, coin_highs, coin_lows, coin_closes, eth_opens, eth_highs, eth_lows, eth_closes,gpt_api, days, option)
+    show_plot(coin_timestamps, coin_closes, coin_lows, coin_highs, eth_timestamps, eth_closes, eth_lows, eth_highs, days)
 
-def show_plot(btc_timestamps, btc_closes, btc_lows, btc_highs, eth_timestamps, eth_closes, eth_lows, eth_highs, days):
+def show_plot(coin_timestamps, coin_closes, coin_lows, coin_highs, eth_timestamps, eth_closes, eth_lows, eth_highs, days):
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
-    ax1.plot(btc_timestamps, btc_closes, color='blue')
-    ax1.vlines(btc_timestamps, btc_lows, btc_highs, color='black', linewidth=1)
-    ax1.set_title(f"Bitcoin (BTC-USD) - {days} Day Historical Data")
+    ax1.plot(coin_timestamps, coin_closes, color='blue')
+    ax1.vlines(coin_timestamps, coin_lows, coin_highs, color='black', linewidth=1)
+    ax1.set_title(f"Bitcoin (coin-USD) - {days} Day Historical Data")
     ax1.set_xlabel("Date")
     ax1.set_ylabel("Price (USD)")
     ax2.plot(eth_timestamps, eth_closes, color='green')

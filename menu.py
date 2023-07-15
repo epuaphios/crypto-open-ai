@@ -12,11 +12,10 @@ def menu():
     while True:
         console.clear()
         os.system('clear')
-        console.print("Options are [bold green]ACTIVE[/bold green]""\nOptions that are work in [bold medium_violet_red]PROGRESS[/bold medium_violet_red]"
-            "\n1. [bold green]Help[/bold green]\n2. [bold green]AI Analysis[/bold green]\n3. [bold medium_violet_red]Live trading: [/bold medium_violet_red](In production) \n4. [bold green]About us[/bold green] \n5. [bold red]Exit[/bold red]",
+        console.print("1. [bold green]AI Analysis[/bold green]\n2. [bold red]Exit[/bold red]",
             soft_wrap=False,
         )
-        choice = Prompt.ask('\nChoose a task: (Enter the number)', choices=["1", "2"], default='5')
+        choice = Prompt.ask('\nChoose a task: (Enter the number)', choices=["1", "2"], default='2')
 
 
         if choice == '1':
