@@ -24,7 +24,7 @@ def get_investment_recommendation(coin, coin_data, coin_opens, coin_highs, coin_
     print("Here are the current prices for bitcoin and etherium")
     print("Please wait, generating your response...")
     coin_prompt = f"\n\n{coin}-USD historical data:\n- Opens: {coin_opens}\n- Highs: {coin_highs}\n- Lows: {coin_lows}\n- Closes: {coin_closes}"
-    prompt = f"{coin} coinin gecmis verilere gore gun mumunda destek ve direnc fiyatini soyleyebilir misin ?  {option} investment strategy. gecmis fiyat bilgileri burda 90 gunluktur : {coin_prompt}\n\n{coin}-USD live price: {coin_price}\n\n"
+    prompt = f"{coin} coinin gecmis verilere gore destek ve direnc fiyatini soyleyebilir misin ?  {option} investment strategy. gecmis fiyat bilgileri burda 90 gunluktur : {coin_prompt}\n\n{coin}-USD live price: {coin_price}\n\n"
     print(prompt)
     body = {
         "prompt": prompt,
