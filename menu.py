@@ -43,7 +43,7 @@ def menu():
 
 
 def choice2():
-    coin = Prompt.ask('\nChoose a coin: (Enter the number)')
+    coin = Prompt.ask('\nChoose a coin: (Write coin shortcut)')
     day_choice = Prompt.ask('\nChoose a dataset of [bold purple]30, 60, or 90 days[/bold purple]. (Enter the number)', choices=["30", "60", "90"], default='30')
     option_choice = Prompt.ask('\nChoose a strategy Conservative (C), Risky (R), Beginner (B)', choices=["Conservative", "Risky", "Beginner", "C", "R", "B"], default='4')
     
