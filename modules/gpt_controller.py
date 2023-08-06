@@ -38,8 +38,9 @@ def get_prices(coin, days, option):
     coin_highs = [entry[2] for entry in coin_data]
     coin_lows = [entry[1] for entry in coin_data]
     coin_closes = [entry[4] for entry in coin_data]
+    coin_date = [entry[0] for entry in coin_data]
 
-    user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option)
+    user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option,coin_date)
     show_plot(coin_timestamps, coin_closes, coin_lows, coin_highs, days)
 
 
