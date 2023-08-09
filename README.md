@@ -16,3 +16,5 @@ Choose a strategy Conservative (C), Risky (R), Beginner (B)
 
 
 AI Response: Down
+
+![image](https://github.com/epuaphios/crypto-open-ai/assets/46420984/17d8ba88-9ff3-4c94-887d-c4610399dece)
