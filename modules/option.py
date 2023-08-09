@@ -4,8 +4,8 @@ console = Console()
 from modules.investment_recommendation import get_investment_recommendation
 
 
-def user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option, coin_date):
-    investment_recommendation = get_investment_recommendation(coin, coin_data, coin_opens, coin_highs, coin_lows,coin_closes, gpt_api, option, coin_date)
+def user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option, coin_date,day_prediction):
+    investment_recommendation = get_investment_recommendation(coin, coin_data, coin_opens, coin_highs, coin_lows,coin_closes, gpt_api, option, coin_date,day_prediction)
 
     print("\nInvestment Recommendation:", investment_recommendation)
     return

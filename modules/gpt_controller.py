@@ -20,7 +20,7 @@ with open('gpt_api.txt', 'r') as file:
     gpt_api = file.read().strip()
 
 
-def get_prices(coin, days, option):
+def get_prices(coin, days, option, day_prediction):
     coin_usd_price = get_current_price(coin + "-USD", headers)
     eth_usd_price = get_current_price("ETH-USD", headers)
     # Print current prices
@@ -40,7 +40,7 @@ def get_prices(coin, days, option):
     coin_closes = [entry[4] for entry in coin_data]
     coin_date = [entry[0] for entry in coin_data]
 
-    user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option,coin_date)
+    user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option, coin_date, day_prediction)
     show_plot(coin_timestamps, coin_closes, coin_lows, coin_highs, days)
 
 
@@ -56,5 +56,5 @@ def show_plot(coin_timestamps, coin_closes, coin_lows, coin_highs, days):
     plt.show()
 
 
-def get_option(coin, days, option):
-    get_prices(coin, days, option)
+def get_option(coin, days, option, day_prediction):
+    get_prices(coin, days, option, day_prediction)

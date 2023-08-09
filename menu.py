@@ -44,7 +44,8 @@ def menu():
 
 def choice2():
     coin = Prompt.ask('\nChoose a coin: (Write coin shortcut)')
-    day_choice = Prompt.ask('\nChoose a dataset of [bold purple]1, 5, or 10 days[/bold purple]. (Enter the number)', choices=["1", "5", "10"], default='1')
+    day_choice = Prompt.ask('\nChoose a dataset of [bold purple]1, 3, or 5 days[/bold purple]. (Enter the number)', choices=["1", "3", "5"], default='1')
+    day_prediction = Prompt.ask('\nChoose a prediction of [bold purple]1, 3, or 5 days[/bold purple]. (Enter the number)', choices=["1", "3", "5"], default='1')
     option_choice = Prompt.ask('\nChoose a strategy Conservative (C), Risky (R), Beginner (B)', choices=["Conservative", "Risky", "Beginner", "C", "R", "B"], default='4')
     
     if option_choice.lower() == "Conservative" or option_choice.lower() == "c":
@@ -67,14 +68,14 @@ def choice2():
         progress.stop()
     console.clear()
 
-    user_input(coin, day_choice, option_choice_validated)
+    user_input(coin, day_choice, option_choice_validated, day_prediction)
     
-def user_input(coin, days, option):
+def user_input(coin, days, option,day_prediction):
     if days == "1" or days == "5" or days == "10":
         module_name = f"modules.gpt_controller"
         module = importlib.import_module(module_name)
         get_option = getattr(module, "get_option")
-        get_option(coin, days, option)
+        get_option(coin, days, option, day_prediction)
         end_programm()
     else:
         exit
