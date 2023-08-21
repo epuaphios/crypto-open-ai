@@ -12,13 +12,12 @@ def get_historical_data(product_id, api_url, start_date, end_date):
     return data
 
 
-def get_historical_order(product_id, api_url, start_date, end_date):
-    candles_url = f"{api_url}/{product_id}/candles"
-    params = {
-        "start": start_date.isoformat(),
-        "end": end_date.isoformat(),
-        "granularity": 3600,
+def get_historical_order(product_id, api_url):
+    candles_url = f"{api_url}/{product_id}/?level=2"
+    payload = ''
+    headers = {
+    'Content-Type': 'application/json'
     }
-    response = requests.get(candles_url, params=params)
+    response = requests.get(candles_url, headers=headers, payload=payload)
     data = response.json()
     return data
