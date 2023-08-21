@@ -3,7 +3,7 @@ import json
 import datetime
 import matplotlib.pyplot as plt
 from modules.investment_recommendation import get_investment_recommendation
-from modules.historical_getter import get_historical_data
+from modules.historical_getter import get_historical_data, get_historical_order
 from modules.current_price import get_current_price
 from rich.console import Console
 from modules.option import user_option
@@ -31,8 +31,10 @@ def get_prices(coin, days, option, day_prediction):
 
     end_date = datetime.datetime.now()
     start_date = end_date - datetime.timedelta(int(days))
+    coin_orders = get_historical_order(coin + "-USD", api_url)
 
     coin_data = get_historical_data(coin + "-USD", api_url, start_date, end_date)
+
     coin_timestamps = [datetime.datetime.fromtimestamp(int(entry[0])) for entry in coin_data]
     coin_opens = [entry[3] for entry in coin_data]
     coin_highs = [entry[2] for entry in coin_data]
@@ -40,7 +42,8 @@ def get_prices(coin, days, option, day_prediction):
     coin_closes = [entry[4] for entry in coin_data]
     coin_date = [entry[0] for entry in coin_data]
 
-    user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option, coin_date, day_prediction)
+
+    user_option(coin, coin_data, coin_opens, coin_highs, coin_lows, coin_closes, gpt_api, option, coin_date, day_prediction,coin_orders)
     show_plot(coin_timestamps, coin_closes, coin_lows, coin_highs, days)
 
 
