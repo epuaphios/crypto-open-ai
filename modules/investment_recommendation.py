@@ -26,7 +26,7 @@ def get_investment_recommendation(coin, coin_data, coin_opens, coin_highs, coin_
     coin_prompt = f"\n\n{coin}-USD historical data:\n- Times: {coin_date} \n  Opens: {coin_opens}\n- Highs: {coin_highs}\n- Lows: {coin_lows}\n- Closes: {coin_closes}"
     coin_order = f"\n\n{coin}-USD order:\n {coin_orders}"
     prompt = f"{coin} Can you guess whether it will up or down after {day_prediction} day ? just write the guess up or down {option} investment strategy. today's chart: {coin_prompt}\n\n{coin}-USD live price: {coin_price} \n\n now order: {coin_order}\n\n"
-    print(prompt)
+    # print(prompt)
     body = {
         "prompt": prompt,
         "max_tokens": 585,
