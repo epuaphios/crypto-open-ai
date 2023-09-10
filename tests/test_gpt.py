@@ -17,7 +17,7 @@ class TestFunctionExistence(unittest.TestCase):
         self.assertTrue(callable(get_current_price))
 
 def test_get_historical_data():
-    product_id = "XRP-USD"
+    product_id = "SOL-USD"
     api_url = "https://api.pro.coinbase.com/products"
     start_date = datetime.datetime(2023, 7, 1)
     end_date = datetime.datetime(2023, 7, 10)
